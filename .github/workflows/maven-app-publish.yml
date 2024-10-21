@@ -29,7 +29,6 @@ jobs:
         -Dclient.id="${{ secrets.CONNECTED_APP_CLIENT_ID }}" \
         -Dclient.secret="${{ secrets.CONNECTED_APP_CLIENT_SECRET }}" \
         -Denv=Sandbox \
-        -Dappname=mule-application \
         -Danypoint.platform.client_id="${{secrets.org_client_id}}" \
         -Danypoint.platform.client_secret="${{secrets.org_client_secret}}"
 
