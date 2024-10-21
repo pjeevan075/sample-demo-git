@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:salesforce="http://www.mulesoft.org/schema/mule/salesforce"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/salesforce http://www.mulesoft.org/schema/mule/salesforce/current/mule-salesforce.xsd
+http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+	<flow name="sample_githubFlow" doc:id="efa9efbd-f09a-44c8-b23d-e01ce5a1e049" >
+		<http:listener doc:name="Listener" doc:id="4f23acce-6e24-4274-829b-c2c11590cfee" config-ref="HTTP_Listener_config" path="/sg"/>
+		<scatter-gather doc:name="Scatter-Gather" doc:id="67766ae3-5235-483a-b62b-ebb8507ff878" >
+			<route >
+				<salesforce:query doc:name="Query" doc:id="0853da08-4219-410a-a840-df84916a1fd5" config-ref="Salesforce_Config">
+					<salesforce:salesforce-query ><![CDATA[SELECT Address__c,Age__c,Email__c,Id,Name__c,Ph_no__c FROM APICENTRICS_LLP__c]]></salesforce:salesforce-query>
+				</salesforce:query>
+			</route>
+			<route >
+				<salesforce:query doc:name="Query" doc:id="b0d5906b-d22e-467d-b90e-e8ba2ae1cc4d" config-ref="Salesforce_Config">
+					<salesforce:salesforce-query ><![CDATA[SELECT Address__c,Age__c,Gender__c,Id,Name__c FROM Persons__c]]></salesforce:salesforce-query>
+				</salesforce:query>
+			</route>
+		</scatter-gather>
+		<ee:transform doc:name="Transform Message" doc:id="febc2536-5312-480c-be67-00663f7ea557" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+payload]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+	</flow>
+</mule>
