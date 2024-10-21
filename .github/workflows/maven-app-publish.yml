@@ -28,10 +28,8 @@ jobs:
         mvn deploy --settings .maven/settings.xml -DskipMunitTests -DmuleDeploy \
         -Dclient.id="${{ secrets.CONNECTED_APP_CLIENT_ID }}" \
         -Dclient.secret="${{ secrets.CONNECTED_APP_CLIENT_SECRET }}" \
-        -Ddecryption.key="${{ secrets.securekey }}" \
-        -Dmule.env=dev \
-        -Denv=dev \
-        -Dappname=algolia-app-dev-ch2 \
+        -Denv=Sandbox \
+        -Dappname=mule-application \
         -Danypoint.platform.client_id="${{secrets.org_client_id}}" \
         -Danypoint.platform.client_secret="${{secrets.org_client_secret}}"
 
