@@ -85,6 +85,7 @@
 		</repository>
 	</distributionManagement>
 	<dependencies>
+		<dependencies>
 		<dependency>
 			<groupId>org.mule.connectors</groupId>
 			<artifactId>mule-http-connector</artifactId>
@@ -97,32 +98,14 @@
 			<version>1.2.4</version>
 			<classifier>mule-plugin</classifier>
 		</dependency>
-		<!-- <dependency><groupId>c105df25-e89b-4946-9fdf-6a4c5107c350</groupId><artifactId>algolia-api</artifactId><version>1.0.0</version><classifier>raml</classifier><type>zip</type></dependency> -->
-		<dependency>
-			<groupId>org.mule.modules</groupId>
-			<artifactId>mule-apikit-module</artifactId>
-			<version>1.10.4</version>
-			<classifier>mule-plugin</classifier>
-		</dependency>
-		<dependency>
-			<groupId>org.mule.connectors</groupId>
-			<artifactId>mule-objectstore-connector</artifactId>
-			<version>1.2.2</version>
-			<classifier>mule-plugin</classifier>
-		</dependency>
-		<dependency>
-			<groupId>com.mulesoft.modules</groupId>
-			<artifactId>mule-secure-configuration-property-module</artifactId>
-			<version>1.2.7</version>
-			<classifier>mule-plugin</classifier>
-		</dependency>
 		<dependency>
 			<groupId>com.mulesoft.connectors</groupId>
 			<artifactId>mule-salesforce-connector</artifactId>
-			<version>10.20.3</version>
+			<version>10.20.2</version>
 			<classifier>mule-plugin</classifier>
 		</dependency>
 	</dependencies>
+	
 	<repositories>
 		<repository>
 			<id>anypoint-exchange-v3</id>
@@ -148,4 +131,5 @@
 			</snapshots>
 		</pluginRepository>
 	</pluginRepositories>
+
 </project>
