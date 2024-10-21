@@ -9,10 +9,9 @@
 	<proxies></proxies>
 	<servers>
 		<server>
-			<id>anypoint-exchange-v3</id>
-			<username>${env.PLATFORM_USERNAME}</username>
-			<password>${env.PLATFORM_PASSWORD}</password>
-		</server>
+<id>anypoint-exchange-v3</id> <!-- make sure this matches the serverId property in pom.xml -->
+<username>~~~Client~~~</username>
+<password>${client.id}~?~${client.secret}</password> <!-- these come from the build.yml and your github secrets --></server>
 	</servers>
 	<mirrors>
 		<mirror>
