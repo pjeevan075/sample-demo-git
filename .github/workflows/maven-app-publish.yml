@@ -24,11 +24,16 @@ jobs:
     - name: Checkout Repository
       uses: actions/checkout@v4
     - name: Build and Deploy with Maven
-      run: mvn clean -B package deploy -DmuleDeploy -s .maven/settings.xml
-      
-      env:
-          PLATFORM_USERNAME: ${{secrets.PLATFORM_USERNAME}}
-          PLATFORM_PASSWORD: ${{secrets.PLATFROM_PASSWORD}}
+      run: |
+        mvn deploy --settings .maven/settings.xml -DskipMunitTests -DmuleDeploy \
+        -Dclient.id="${{ secrets.CONNECTED_APP_CLIENT_ID }}" \
+        -Dclient.secret="${{ secrets.CONNECTED_APP_CLIENT_SECRET }}" \
+        -Ddecryption.key="${{ secrets.securekey }}" \
+        -Dmule.env=dev \
+        -Denv=dev \
+        -Dappname=algolia-app-dev-ch2 \
+        -Danypoint.platform.client_id="${{secrets.org_client_id}}" \
+        -Danypoint.platform.client_secret="${{secrets.org_client_secret}}"
 
 
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
