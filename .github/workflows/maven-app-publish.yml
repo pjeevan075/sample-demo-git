@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Cache dependencies
-    - uses: actions/checkout@v4
+      uses: actions/checkout@v4
     - name: Checkout Repository
       uses: actions/checkout@v4
     - name: Build and Deploy with Maven
