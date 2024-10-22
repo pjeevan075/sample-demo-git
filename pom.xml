@@ -32,22 +32,33 @@
 				<version>${mule.maven.plugin.version}</version>
 				<extensions>true</extensions>
 				<configuration>
-					<cloudHubDeployment>
+					<cloudhub2Deployment>
 						<uri>https://anypoint.mulesoft.com</uri>
+						<provider>MC</provider>
 						<muleVersion>4.4.0</muleVersion>
-						<connectedAppClientId>${anypoint.username}</connectedAppClientId>
-						<connectedAppClientSecret>${anypoint.password}</connectedAppClientSecret>
-						<connectedAppGrantType>client_credentials</connectedAppGrantType>
+						<server>anypoint-exchange-v3</server>
 						<businessGroupId>${anypoint.businessGroup}</businessGroupId>
 						<environment>${env}</environment>
-						<region>us-east-2</region>
-						<workers>1</workers>
-						<workerType>MICRO</workerType>
+						<target>DemoSpace</target>
+						<applicationName>${appname}</applicationName>
+						<replicas>1</replicas>
+						<vCores>0.1</vCores>
+						<deploymentSettings>
+						<http>
+							<inbound>
+								<publicUrl>https://deploy-cloudhub2.sirichat.com</publicUrl>
+							</inbound>
+						</http>
+						<lastMileSecurity>false</lastMileSecurity>
+						<forwardSslSession>false</forwardSslSession>
+						<generateDefaultPublicUrl>false</generateDefaultPublicUrl>
+						</deploymentSettings>
 						<properties>
-						<anypoint.platform.client_id>${anypoint.platform.client_id}</anypoint.platform.client_id>
-						<anypoint.platform.client_secret>${anypoint.platform.client_secret}</anypoint.platform.client_secret>
+							<anypoint.platform.client_id>${anypoint.platform.client_id}</anypoint.platform.client_id>
+							<anypoint.platform.client_secret>${anypoint.platform.client_secret}</anypoint.platform.client_secret>
 						</properties>
-					</cloudHubDeployment>
+					</cloudhub2Deployment>
+
 				</configuration>
 			</plugin>
 			
