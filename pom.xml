@@ -13,7 +13,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-		<app.runtime>4.7.0</app.runtime>
+		<app.runtime>4.6.6</app.runtime>
 		<mule.maven.plugin.version>4.2.0</mule.maven.plugin.version>
 	</properties>
 
@@ -35,20 +35,21 @@
 						<uri>https://anypoint.mulesoft.com</uri>
 						<provider>MC</provider>
 						<environment>${env}</environment>
-						<target>indy-space</target>
-						<muleVersion>4.7.0</muleVersion>
+						<target>Cloudhub-US-East-2</target>
+						<muleVersion>4.6.6</muleVersion>
 						<server>anypoint-exchange-v3</server>
 						<applicationName>${appname}</applicationName>
 						<replicas>1</replicas>
 						<vCores>0.1</vCores>
 						<secureProperties>
+							<secure.key>${decryption.key}</secure.key>
 							<anypoint.platform.client_id>${anypoint.platform.client_id}</anypoint.platform.client_id>
 							<anypoint.platform.client_secret>${anypoint.platform.client_secret}</anypoint.platform.client_secret>
 						</secureProperties>
 						<properties>
 							<mule.env>${mule.env}</mule.env>
 						</properties>
-					</cloudhub2Deployment>
+						</cloudhub2Deployment>
 				</configuration>
 			</plugin>
 			
