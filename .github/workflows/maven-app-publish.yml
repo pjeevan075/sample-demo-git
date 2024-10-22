@@ -18,11 +18,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+    - name: Checkout this repo
+      uses: actions/checkout@v3
     - name: Cache dependencies
-      uses: actions/checkout@v4
-    - name: Checkout Repository
-      uses: actions/checkout@v4
-    - name: Build and Deploy with Maven
+      uses: actions/cache@v3
       with:
         path: ~/.m2/repository
         key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
