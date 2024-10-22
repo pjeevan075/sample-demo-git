@@ -31,25 +31,22 @@
 				<version>${mule.maven.plugin.version}</version>
 				<extensions>true</extensions>
 				<configuration>
-					<cloudhub2Deployment>
+					<cloudHubDeployment>
 						<uri>https://anypoint.mulesoft.com</uri>
-						<provider>MC</provider>
-						<environment>${env}</environment>
-						<target>Cloudhub-US-East-2</target>
 						<muleVersion>4.4.0</muleVersion>
-						<server>anypoint-exchange-v3</server>
-						<applicationName>${appname}</applicationName>
-						<replicas>1</replicas>
-						<vCores>0.1</vCores>
-						<secureProperties>
-							<secure.key>${decryption.key}</secure.key>
-							<anypoint.platform.client_id>${anypoint.platform.client_id}</anypoint.platform.client_id>
-							<anypoint.platform.client_secret>${anypoint.platform.client_secret}</anypoint.platform.client_secret>
-						</secureProperties>
+						<connectedAppClientId>${anypoint.username}</connectedAppClientId>
+						<connectedAppClientSecret>${anypoint.password}</connectedAppClientSecret>
+						<connectedAppGrantType>client_credentials</connectedAppGrantType>
+						<businessGroupId>${anypoint.businessGroup}</businessGroupId>
+						<environment>${env}</environment>
+						<region>us-east-2</region>
+						<workers>1</workers>
+						<workerType>MICRO</workerType>
 						<properties>
-							<mule.env>${mule.env}</mule.env>
+						<anypoint.platform.client_id>${anypoint.platform.client_id}</anypoint.platform.client_id>
+						<anypoint.platform.client_secret>${anypoint.platform.client_secret}</anypoint.platform.client_secret>
 						</properties>
-						</cloudhub2Deployment>
+					</cloudHubDeployment>
 				</configuration>
 			</plugin>
 			
