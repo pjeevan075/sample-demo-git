@@ -62,7 +62,7 @@ jobs:
           -Dappname=deploy-cloudhub2 \
           -Danypoint.businessGroup="${{ secrets.Business_Group_Id }}" \
           -Danypoint.platform.client_id="${{secrets.CLIENT_ID}}" \
-          -Danypoint.platform.client_secret="${{secrets.CLIENT_SECRET}}"  
+          -Danypoint.platform.client_secret="${{secrets.CLIENT_SECRET}}"
 
 
 
