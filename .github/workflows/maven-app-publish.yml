@@ -6,7 +6,7 @@
 # separate terms of service, privacy policy, and support
 # documentation.
 
-name: Cloudhub - Build and deploy
+name: Cloudhub 2.0 - Build and deploy
 
 on:
   push:
